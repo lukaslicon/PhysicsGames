@@ -12,6 +12,8 @@ class load extends Phaser.Scene {
         this.load.image('coin', 'images/coin.png');
         this.load.image('bob', 'images/bob.png');
         this.load.image('ship', 'images/spaceship.png');
+        this.load.image('laser', 'images/laser.png');
+
     }
     create()
     {
