@@ -14,7 +14,7 @@ let config = {
     }
 },
 //scene: [load, intro, game1, summary1, game2, summary2, game3, summary3, outro],
-scene: [load, game2, summary2, intro, game1, summary1, game3, summary3, outro],
+scene: [load, intro, game1, summary1, game2, summary2,  game3, summary3, outro],
 title: "Physics Based Games",
 };
 
