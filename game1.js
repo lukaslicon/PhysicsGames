@@ -5,11 +5,9 @@ class game1 extends Phaser.Scene {
     }
     create()
     {
-        //control text
-        this.add.text(100, 100, "Movement:WASD\n\nSCORE:\n\nDont get hit!").setFontSize(30)
+
         //player rectangle
-        this.player = this.add.rectangle(400, 300, 64, 64, 0xffffff);
-        this.physics.add.existing(this.player, false);
+        this.player = this.physics.add.image(400, 300, 'bob').setScale(.75);
         this.cursors = this.input.keyboard.createCursorKeys();
         this.player.body.setCollideWorldBounds(true); //player cannot go out of bounds
 
@@ -31,6 +29,21 @@ class game1 extends Phaser.Scene {
         this.physics.add.collider(sprite, this.player);
         this.physics.add.collider(sprite2, this.player);
         //this.physics.add.collider(this.sprite2, this.group);
+
+        this.coins = this.physics.add.group({ immovable: true });
+        const outer = new Phaser.Geom.Rectangle(50, 50, 1800, 1200);
+        const inner = new Phaser.Geom.Rectangle(800, 300, 500, 200);
+        for (let i = 0; i < 60; i++)
+        {
+            const point = Phaser.Geom.Rectangle.RandomOutside(outer, inner);
+            const coins = this.coins.create(point.x, point.y, 'coin');
+
+            this.physics.add.existing(coins);
+
+            coins.body.setImmovable();
+        }
+        //controls
+        this.add.text(100, 100, "Movement:WASD\n\nSCORE:\n\nDont get hit!").setFontSize(30)
     }
     update ()
     {
@@ -53,5 +66,11 @@ class game1 extends Phaser.Scene {
             this.player.body.setVelocityY(300);
         }
 
+        this.physics.overlap(this.player, this.coins, (player, coins) =>
+        {
+            coins.destroy();
+        });
+
+
     }
-}
+    }
