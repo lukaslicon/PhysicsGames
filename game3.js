@@ -1,7 +1,7 @@
 
-class game1 extends Phaser.Scene {
+class game3 extends Phaser.Scene {
     constructor(){
-        super('game1');
+        super('game3');
     }
     create()
     {
@@ -42,7 +42,6 @@ class game1 extends Phaser.Scene {
         this.add.text(100, 100, "Movement: Arrow Keys\n\nDont get hit!").setFontSize(30)
 
         this.physics.add.collider(this.player, [sprite, sprite2], () => {
-
             this.scene.start('summary1');
         });
 
@@ -77,18 +76,18 @@ class game1 extends Phaser.Scene {
     }
 
     
-class summary1 extends Phaser.Scene {
+class summary3 extends Phaser.Scene {
     constructor() {
-        super('summary1');
+        super('summary3');
     }
     create(){
         this.add.text(300, 150, "You have gotten hit by one of the circles!").setFontSize(50).setFill("#f0000f");
-        this.add.text(750, 700, "CLICK ANYWHERE TO MOVE ON TO GAME 2").setFontSize(30)
+        this.add.text(750, 800, "CLICK ANYWHERE TO MOVE ON TO GAME 2").setFontSize(30)
         this.add.text(650, 500, game1points).setFontSize(30)
         this.add.text(650, 560, game1points).setFontSize(30)
         this.add.text(400, 500, "Game 1 score:\n\nTOTAL Score:\n\n",).setFontSize(30) 
             this.input.on('pointerdown', () => {
-                this.scene.start('game2')
+                this.scene.start('outro')
     });
     }
 }
