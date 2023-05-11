@@ -1,11 +1,70 @@
 //scene1
 class physicsGame1 extends Phaser.Scene {
-    constructor(key, name) {
-        super(key);
-        this.name = name;
+    constructor(){
+        super("game1", "Game #1",);
+    }
+    preload ()
+    {
+        this.load.image('ball', 'assets/images/ball.png');
+    }
+    create ()
+    {
+        this.player = this.add.rectangle(400, 300, 64, 64, 0xffffff);
+
+        this.physics.add.existing(this.player, false);
+
+        this.cursors = this.input.keyboard.createCursorKeys();
+
+        this.player.body.setCollideWorldBounds(true);
+        this.sprite = this.physics.add.image(400, 300, 'ball');
+        this.sprite2 = this.physics.add.image(400, 300, 'ball');
+
+        /*this.group = this.physics.add.staticGroup({
+            key: 'ball',
+            frameQuantity: 60
+        });
+
+        Phaser.Actions.PlaceOnRectangle(this.group.getChildren(), new Phaser.Geom.Rectangle(0, 0, 1920, 1080));
+        this.group.refresh();
+        */
+        this.sprite.setVelocity(288, 300).setBounce(1, 1.05).setCollideWorldBounds(true).setGravityY(100);
+        this.sprite2.setVelocity(400, 400).setBounce(1, 1.01).setCollideWorldBounds(true).setGravityY(100);
+        //this.physics.add.collider(this.sprite, this.group);
+        //this.physics.add.collider(this.sprite2, this.group);
+    }
+    update ()
+    {
+        this.player.body.setVelocity(0);
+
+        if (this.cursors.left.isDown)
+        {
+            this.player.body.setVelocityX(-300);
+        }
+        else if (this.cursors.right.isDown)
+        {
+            this.player.body.setVelocityX(300);
+        }
+
+        if (this.cursors.up.isDown)
+        {
+            this.player.body.setVelocityY(-300);
+        }
+        else if (this.cursors.down.isDown)
+        {
+            this.player.body.setVelocityY(300);
+        }
     }
 }
 
+class physicsGame extends Phaser.Scene {
+    constructor(key, name) {
+        super(key);
+        this.name = name;
+
+    }
+
+
+}
 
 
 
@@ -30,7 +89,7 @@ class intro extends Phaser.Scene {
         this.add.text(725,850, "Click anywhere to begin.").setFontSize(30).setFill('#f0000f');
         this.input.on('pointerdown', () => {
             this.cameras.main.fade(1000, 0,0,0);
-            this.time.delayedCall(1000, () => this.scene.start('outro'));
+            this.time.delayedCall(1000, () => this.scene.start('game1'));
         });
     }
 }
@@ -54,13 +113,18 @@ class outro extends Phaser.Scene {
 }
 
 
-const game = new Phaser.Game({
-    scale: {
-        mode: Phaser.Scale.FIT,
-        autoCenter: Phaser.Scale.CENTER_BOTH,
+const config = {
+        type: Phaser.AUTO,
         width: 1920,
-        height: 1080
+        height: 1080,
+        physics:{
+            default: 'arcade',
+            arcade: {
+                debug: true
+        }
     },
-    scene: [intro, outro],
+    scene: [physicsGame1, intro, outro],
     title: "Physics Based Games",
-});
+};
+
+const game = new Phaser.Game(config);
