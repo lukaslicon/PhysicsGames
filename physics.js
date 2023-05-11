@@ -1,4 +1,14 @@
+class physicsGame1 extends Phaser.Scene {
 
+}
+
+class physicsGame2 extends Phaser.Scene {
+
+}
+
+class physicsGame3 extends Phaser.Scene {
+
+}
 const game = new Phaser.Game({
     scale: {
         mode: Phaser.Scale.FIT,
@@ -6,12 +16,6 @@ const game = new Phaser.Game({
         width: 1920,
         height: 1080
     },
-    scene: [Intro, Scene1, Scene2, Scene3, Scene4, Outro1, Outro2],
-    //scene: [Scene1, Intro, Scene2, Scene3, Scene4, Outro1, Outro2],
-    //scene: [Scene2, Intro, Scene1, Scene3, Scene4,  Outro1, Outro2],
-    //scene: [Scene3, Intro, Scene1, Scene2, Scene4,  Outro1, Outro2],
-    //scene: [Scene4, Intro, Scene1, Scene2, Scene3,  Outro1, Outro2],
-    //scene: [ Outro1, Scene4, Intro, Scene1, Scene2, Scene3,  Outro2],
-    //scene: [ Outro2, Scene4, Intro, Scene1, Scene2, Scene3,  Outro1],
-    title: "Adventure Game",
+    scene: [Intro, game1, game2, game3, Outro],
+    title: "Physics Based Games",
 });
