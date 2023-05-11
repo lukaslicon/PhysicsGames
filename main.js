@@ -7,10 +7,7 @@ let config = {
         default: 'arcade',
         arcade: {
             debug: false,
-            gravity: {
-                x: 0,
-                y: 0
-            }
+            debugShowVelocity: false
     }
 },
 //scene: [load, intro, game1, summary1, game2, summary2, game3, summary3, outro],
