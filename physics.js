@@ -1,6 +1,16 @@
+//scene1
+class physicsGame1 extends Phaser.Scene {
+    constructor(key, name) {
+        super(key);
+        this.name = name;
+    }
+}
 
 
 
+
+
+//intro
 
 class intro extends Phaser.Scene {
     constructor() {
@@ -25,7 +35,7 @@ class intro extends Phaser.Scene {
     }
 }
 
-
+//outro
 
 class outro extends Phaser.Scene {
     constructor() {
