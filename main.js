@@ -1,4 +1,6 @@
-
+game1points = 0;
+game2points = 0;
+game3points = 0;
 let config = {
     type: Phaser.AUTO,
     width: 1920,
@@ -6,7 +8,7 @@ let config = {
     physics:{
         default: 'arcade',
         arcade: {
-            debug: true,
+            debug: false,
             gravity: {
                 x: 0,
                 y: 0
