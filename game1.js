@@ -1,15 +1,12 @@
+
 class game1 extends Phaser.Scene {
     constructor(){
-        super("game1", "Game #1",);
+        super('game1');
     }
-    preload ()
-    {
-        this.load.image('ball', 'assets/images/ball.png');
-    }
-    onEnter()
+    create()
     {
         //control text
-        this.add.text(100, 100, "Game 1 score:\n\nGame 2 score:\n\nGame 3 score:\n\nTOTAL Score:\n\n").setFontSize(30)
+        this.add.text(100, 100, "Movement:WASD\n\nSCORE:\n\nDont get hit!").setFontSize(30)
         //player rectangle
         this.player = this.add.rectangle(400, 300, 64, 64, 0xffffff);
         this.physics.add.existing(this.player, false);
@@ -38,6 +35,7 @@ class game1 extends Phaser.Scene {
     update ()
     {
         this.player.body.setVelocity(0);
+
         if (this.cursors.left.isDown)
         {
             this.player.body.setVelocityX(-300);
@@ -54,25 +52,6 @@ class game1 extends Phaser.Scene {
         {
             this.player.body.setVelocityY(300);
         }
+
     }
 }
-
-let config = {
-    type: Phaser.AUTO,
-    width: 1920,
-    height: 1080,
-    physics:{
-        default: 'arcade',
-        arcade: {
-            debug: true,
-            gravity: {
-                x: 0,
-                y: 0
-            }
-    }
-},
-scene: [intro, game1, outro],
-title: "Physics Based Games",
-};
-
-let game = new Phaser.Game(config);
