@@ -1,9 +1,8 @@
-class Intro extends Phaser.Scene {
+class intro extends Phaser.Scene {
     constructor() {
         super('intro')
     }
     preload(){
-
     }
     create() {
         this.add.text(535,150, "Out with the Bugs!").setFontSize(80);
@@ -12,7 +11,7 @@ class Intro extends Phaser.Scene {
         this.add.text(775,950, "Click anywhere to begin.").setFontSize(20)
         this.input.on('pointerdown', () => {
             this.cameras.main.fade(1000, 0,0,0);
-            this.time.delayedCall(1000, () => this.scene.start('Scene1'));
+            this.time.delayedCall(1000, () => this.scene.start('game1'));
         });
     }
 }
