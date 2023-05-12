@@ -1,5 +1,4 @@
 
-shotsTaken = 0;
 class game3 extends Phaser.Scene {
     constructor(){
         super('game3');
@@ -28,7 +27,7 @@ class game3 extends Phaser.Scene {
             balls.setOrigin(0.5);
             this.physics.velocityFromRotation(angle-.5, 600, balls.body.velocity);
             balls.body.gravity.y = 150;
-
+            balls.body.setCircle(80);
              // Enable ball-body collision with the world bounds
             balls.body.collideWorldBounds = true;
             // Set the ground as the only collision object for the ball
@@ -36,8 +35,11 @@ class game3 extends Phaser.Scene {
             balls.body.onWorldBounds = true;
             this.time.delayedCall(8000, () => {
                 balls.destroy();
-                
+
             });
+            
+            // Add collision between ball and bar images
+            this.physics.add.collider(balls, [bar1, bar2, bar3]);
         });
 
         this.physics.world.on('worldbounds', (body) => {
@@ -48,18 +50,28 @@ class game3 extends Phaser.Scene {
         });
 
                 // Add three circles on the right side of the view
-                const circleRadius = 50;
-                const circle1 = this.add.circle(1865, 245, circleRadius, 0xffffff);
-                const circle2 = this.add.circle(1865, 545, circleRadius, 0xffffff);
-                const circle3 = this.add.circle(1865, 845, circleRadius, 0xffffff);
+                let hoop1 = this.physics.add.image(1855, 240, 'hoop')
+                    .setScale(.25)
+                    .setImmovable()
+                    .body.setCircle(240);
+                let hoop2 = this.physics.add.image(1855, 540, 'hoop')
+                    .setScale(.25)
+                    .setImmovable()
+                    .body.setCircle(240);
+                let hoop3 = this.physics.add.image(1855, 840, 'hoop')
+                    .setScale(.25)
+                    .setImmovable()
+                    .body.setCircle(240);
 
-                let rect1 = new Phaser.Geom.Rectangle(1700, 300, 215, 20);
-                let rect2 = new Phaser.Geom.Rectangle(1700, 600, 215, 20);
-                let rect3 = new Phaser.Geom.Rectangle(1700, 900, 215, 20);
-                let graphicsRec = this.add.graphics({ fillStyle: { color: 0xffffff } });
-                graphicsRec.fillRectShape(rect1);
-                graphicsRec.fillRectShape(rect2);
-                graphicsRec.fillRectShape(rect3);
+                let bar1 = this.physics.add.image(1810, 310, 'bar');
+                let bar2 = this.physics.add.image(1810, 610, 'bar');
+                let bar3 = this.physics.add.image(1810, 910, 'bar');
+                bar1.body.setImmovable();
+                bar2.body.setImmovable();
+                bar3.body.setImmovable();
+
+                // Enable physics for bar images
+                this.physics.world.enable([bar1, bar2, bar3]);
 
     }
 }
@@ -69,13 +81,13 @@ class summary3 extends Phaser.Scene {
         super('summary3');
     }
     create(){
-        this.add.text(300, 150, "You have gotten hit by one of the circles!").setFontSize(50).setFill("#f0000f");
+        this.add.text(300, 150, "Congratulations on Making 3 Hoops!").setFontSize(50).setFill("#f0000f");
         this.add.text(750, 800, "CLICK ANYWHERE TO MOVE ON TO GAME 2").setFontSize(30)
         this.add.text(780, 500, game3points).setFontSize(30);
         this.add.text(650, 560, game3time).setFontSize(30);
         this.add.text(750, 620, game2total).setFontSize(30);
         this.add.text(675, 705, totalpoints).setFontSize(30);
-        this.add.text(400, 500, "Asteroids Spawned:\n\nGame 2 time:\n\nTOTAL Level Score:\n\n\nTotal Points:",).setFontSize(30) 
+        this.add.text(400, 500, "Balls Shot:\n\nGame 3 time:\n\nTOTAL Level Score:\n\n\nTotal Points:",).setFontSize(30) 
             this.input.on('pointerdown', () => {
                 this.scene.start('outro')
     });
