@@ -6,8 +6,8 @@ class game3 extends Phaser.Scene {
     }
     create()
     {
-        this.add.image(320, 256, 'court').setScale(1.35);
-        this.add.text(300, 150, "Make the ball into the hoop!").setFontSize(50).setFill("#f0000f");
+        this.add.image(960, 540, 'court');
+        this.add.text(550, 1000, "Make the ball into the hoop!").setFontSize(50).setFill("#000ff0");
         this.cameras.main.setBackgroundColor(0x1D1923);
 
         //player
@@ -60,12 +60,20 @@ class summary3 extends Phaser.Scene {
         super('summary3');
     }
     create(){
+        this.add.image(960,540 , 'summaryScreen');
         if(game3bounces > 0){
             game3total = Phaser.Math.RoundTo((game3bounces/game3time) * 40);
         }
         totalpoints = totalpoints + game3total;
         this.add.text(400, 200, "Congratulations on making the goal!").setFontSize(50).setFill("#00ff00");
-        this.add.text(700, 800, "CLICK ANYWHERE TO MOVE ON").setFontSize(30)
+        const text = this.add.text(725, 800, "CLICK ANYWHERE TO MOVE ON").setFontSize(30).setFill("#000ff0");
+        this.tweens.add({
+            targets: text,
+            scaleY: 1.3,
+            duration: 1000,
+            yoyo: true,
+            repeat: -1
+        });
         this.add.text(1040, 400, game3bounces).setFontSize(30);
         this.add.text(1000, 460, game3time).setFontSize(30);
         this.add.text(1100, 520, game3total).setFontSize(30);

@@ -5,7 +5,7 @@ class game1 extends Phaser.Scene {
     }
     create()
     {
-        this.add.image(320, 256, 'background1').setScale(1.35);
+        this.add.image(960, 540, 'background1');
         //player rectangle
         this.player = this.physics.add.image(400, 300, 'bob').setScale(.75);
         this.cursors = this.input.keyboard.createCursorKeys();
@@ -42,7 +42,7 @@ class game1 extends Phaser.Scene {
             coins.body.setImmovable();
         }
         //controls
-        this.add.text(100, 100, "Movement: Arrow Keys\n\nDont get hit!").setFontSize(30)
+        this.add.text(50, 50, "Movement: Arrow Keys\n\nDont get hit!").setFontSize(30)
 
         this.physics.add.collider(this.player, [sprite, sprite2], () => {
             this.scene.start('summary1');
@@ -84,9 +84,17 @@ class summary1 extends Phaser.Scene {
         super('summary1');
     }
     create(){
+        this.add.image(960,540 , 'summaryScreen');
         this.add.text(300, 150, "You have gotten hit by one of the circles!").setFontSize(50).setFill("#f0000f");
-        this.add.text(100, 500, "Game 2 is all about dodging asteroids and staying alive for as long as you can!").setFontSize(35).setFill("#f0f00f");
-        this.add.text(650, 700, "CLICK ANYWHERE TO MOVE ON TO GAME 2").setFontSize(30)
+        this.add.text(150, 500, "Game 2: Dodge asteroids using your mouse to stay alive for as long as you can!").setFontSize(35).setFill("#f0f00f");
+        const text = this.add.text(650, 700, "CLICK ANYWHERE TO MOVE ON TO GAME 2").setFontSize(30).setFill("#000ff0");
+        this.tweens.add({
+            targets: text,
+            scaleY: 1.3,
+            duration: 1000,
+            yoyo: true,
+            repeat: -1
+        });
         this.add.text(1075, 300, game1points).setFontSize(30)
         this.add.text(1075, 360, game1points).setFontSize(30)
         this.add.text(825, 300, "Game 1 score:\n\nTOTAL Score:\n\n",).setFontSize(30) 

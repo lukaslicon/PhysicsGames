@@ -30,12 +30,12 @@ class load extends Phaser.Scene {
         this.load.image('spaceBackground', 'images/spaceBackground.png');
         this.load.image('court', 'images/court.png');
         this.load.image('background1', 'images/game1background.png');
-
+        this.load.image('summaryScreen', 'images/summaryscreen.png');
 
 
     }
     create()
     {
-        this.scene.start('summary2');
+        this.scene.start('game1');
     }
 }

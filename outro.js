@@ -4,6 +4,7 @@ class outro extends Phaser.Scene {
         super('outro');
     }
     create() {
+        this.add.image(960,540 , 'summaryScreen');
         let rect1 = new Phaser.Geom.Rectangle(275, 115, 1315, 5);
         let rect2 = new Phaser.Geom.Rectangle(275, 325, 1315, 5);
         let graphics1 = this.add.graphics({ fillStyle: { color: 0x00ff00 } });
