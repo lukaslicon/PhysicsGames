@@ -5,7 +5,7 @@ class game1 extends Phaser.Scene {
     }
     create()
     {
-
+        this.add.image(320, 256, 'background1').setScale(1.35);
         //player rectangle
         this.player = this.physics.add.image(400, 300, 'bob').setScale(.75);
         this.cursors = this.input.keyboard.createCursorKeys();
