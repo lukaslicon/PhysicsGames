@@ -14,5 +14,6 @@ Asset sources:
 - **Ship**: https://dribbble.com/shots/3965938-Top-Down-Space-Shooters  I cut image out, made transparent background, changed the green on the ship to blue so that it would match a better space vibe. 
 - **Asteroid**: https://www.vectorstock.com/royalty-free-vector/asteroid-icon-cartoon-style-vector-23129163  Removed background, changed colors so that it was a brighter/more white, I also converted it from jpeg to png
 - **Hoop**: https://www.istockphoto.com/vector/basketball-hoop-gm451574021-26246448  I cut out the hoops background and then I erased and used a lasso tool to erase the bottom part and make it a perfect circle.
+- **Space Background**: https://opengameart.org/content/space-star-background I resized the image to 1920x1080 then I shanged the saturation and hue so that instead of it being a purple color the background was a dark blueish.
 
 All other art such as game1 player, game1 enemies, game3 basketball, and game3 bar were made by me using paint.net
