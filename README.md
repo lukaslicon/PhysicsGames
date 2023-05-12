@@ -1,5 +1,6 @@
 # PhysicsGames
 3 simple Physics Based Games
+Playable Link: https://lukaslicon.github.io/PhysicsGames/
 
 Experience requirements:
 - **The game uses both continuous and discrete inputs from the player**: In all scenes player input is needed to do a certain task whether it be move around to collect coins, dodging falling items, or moving a bar to hit a ball. There is lots of continuous inputs but also there are small discrete inputs such as collisions and velocity movement/bounce.
