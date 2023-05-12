@@ -15,5 +15,7 @@ Asset sources:
 - **Asteroid**: https://www.vectorstock.com/royalty-free-vector/asteroid-icon-cartoon-style-vector-23129163  Removed background, changed colors so that it was a brighter/more white, I also converted it from jpeg to png
 - **Hoop**: https://www.istockphoto.com/vector/basketball-hoop-gm451574021-26246448  I cut out the hoops background and then I erased and used a lasso tool to erase the bottom part and make it a perfect circle.
 - **Space Background**: https://opengameart.org/content/space-star-background I resized the image to 1920x1080 then I shanged the saturation and hue so that instead of it being a purple color the background was a dark blueish.
+- **Court Background**: http://clipart-library.com/clipart/1147897.htm I resized the image, changed the hue again so that it would be different shade and also changed the exposure so it was not as bright as the original image.
+- **Game1 Background**: https://www.psdgraphics.com/backgrounds/simple-geometric-design/ I changed all the colors on the image so that instead of an orange/red/yellow and a tiny bit of purple I completely changed all the colors so that it is a heavy amount of blue and a tiny bit of purple.
 
 All other art such as game1 player, game1 enemies, game3 basketball, and game3 bar were made by me using paint.net
