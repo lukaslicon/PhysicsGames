@@ -9,3 +9,9 @@ Experience requirements:
 - **Other scenes are used to separate and contextualize the gameplay scenes**: Use of summary scenes to seperate and contextualize the gameplay scenes between games to give the player a summary of game they played/score.
 
 Asset sources:
+- **Coin**:  https://www.hubpng.com/photo/21279/business-coins-money-stack-salary-stencil-hd-png  This coin was an outline and I colored it in so that it would be yellow on the inside then removed the outside lines they had added.
+- **Ship**: https://dribbble.com/shots/3965938-Top-Down-Space-Shooters  I cut image out, made transparent background, changed the green on the ship to blue so that it would match a better space vibe. 
+- **Asteroid**: https://www.vectorstock.com/royalty-free-vector/asteroid-icon-cartoon-style-vector-23129163  Removed background, changed colors so that it was a brighter/more white, I also converted it from jpeg to png
+- **Hoop**: https://www.istockphoto.com/vector/basketball-hoop-gm451574021-26246448  I cut out the hoops background and then I erased and used a lasso tool to erase the bottom part and make it a perfect circle.
+
+All other art such as game1 player, game1 enemies, game3 basketball, and game3 bar were made by me using paint.net
