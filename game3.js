@@ -8,6 +8,8 @@ class game3 extends Phaser.Scene {
     {
         this.cameras.main.setBackgroundColor('#f00f00');
 
+        this.add.text(200, 50, "Try to make all three hoops as fast as possible without missing!\n                 Less misses means more points!").setFontSize(40).setFill("#ffffff");
+
         const cannon = this.add.image(190, 950, 'head').setDepth(1);
         this.add.image(160, 1015, 'wheel').setDepth(1);
 
@@ -25,7 +27,7 @@ class game3 extends Phaser.Scene {
             balls.setScale(0.4);
             balls.setOrigin(0.5);
             this.physics.velocityFromRotation(angle-.5, 600, balls.body.velocity);
-            balls.body.gravity.y = 200;
+            balls.body.gravity.y = 150;
 
              // Enable ball-body collision with the world bounds
             balls.body.collideWorldBounds = true;
@@ -34,6 +36,7 @@ class game3 extends Phaser.Scene {
             balls.body.onWorldBounds = true;
             this.time.delayedCall(8000, () => {
                 balls.destroy();
+                
             });
         });
 
@@ -45,13 +48,18 @@ class game3 extends Phaser.Scene {
         });
 
                 // Add three circles on the right side of the view
-                const circleSpacing = 100;
                 const circleRadius = 50;
-                const circleX = this.cameras.main.width - circleRadius - 10;
-                const circleY = (this.cameras.main.height/2);
-                const circle1 = this.add.circle(circleX, circleY, circleRadius, 0xffffff);
-                const circle2 = this.add.circle(circleX, circleY + 2.75 * circleSpacing, circleRadius, 0xffffff);
-                const circle3 = this.add.circle(circleX, circleY - 3 * circleSpacing, circleRadius, 0xffffff);
+                const circle1 = this.add.circle(1865, 245, circleRadius, 0xffffff);
+                const circle2 = this.add.circle(1865, 545, circleRadius, 0xffffff);
+                const circle3 = this.add.circle(1865, 845, circleRadius, 0xffffff);
+
+                let rect1 = new Phaser.Geom.Rectangle(1700, 300, 215, 20);
+                let rect2 = new Phaser.Geom.Rectangle(1700, 600, 215, 20);
+                let rect3 = new Phaser.Geom.Rectangle(1700, 900, 215, 20);
+                let graphicsRec = this.add.graphics({ fillStyle: { color: 0xffffff } });
+                graphicsRec.fillRectShape(rect1);
+                graphicsRec.fillRectShape(rect2);
+                graphicsRec.fillRectShape(rect3);
 
     }
 }
