@@ -5,9 +5,8 @@ class game2 extends Phaser.Scene {
 
     }
     create()
-    {
+    {   this.add.image(320, 256, 'spaceBackground').setScale(1.5);
         this.add.text(300, 150, "Dodge the asteroids for as long as you can!").setFontSize(50).setFill("#f0000f");
-        this.cameras.main.setBackgroundColor(0x1D1923);
         this.player = this.physics.add.image(950, 950, 'ship')
         const { world } = this.physics;
 
