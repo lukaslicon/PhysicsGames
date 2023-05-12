@@ -1,6 +1,11 @@
 game1points = 0;
 game2points = 0;
+game2time = 0;
+game2total = 0;
 game3points = 0;
+game3time = 0;
+totalpoints = 0;
+
 class load extends Phaser.Scene {
     constructor(){
         super('load');
@@ -13,10 +18,15 @@ class load extends Phaser.Scene {
         this.load.image('bob', 'images/bob.png');
         this.load.image('ship', 'images/spaceship.png');
         this.load.image('laser', 'images/laser.png');
+        this.load.image('asteroid', 'images/asteroid.png');
+        this.load.image('head', 'images/cannonhead.png');
+        this.load.image('wheel', 'images/cannonwheel.png');
+        this.load.image('basketball', 'images/basketball.png');
+
 
     }
     create()
     {
-        this.scene.start('game2');
+        this.scene.start('game3');
     }
 }

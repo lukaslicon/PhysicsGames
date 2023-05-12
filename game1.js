@@ -14,17 +14,22 @@ class game1 extends Phaser.Scene {
         //sprites
         const sprite = this.physics.add.image(400, 300, 'ball')
             .setVelocity(288, 300)
-            .setBounce(1, 1.05)
+            .setBounce(1, 1.08)
             .setCollideWorldBounds(true)
             .setGravityY(100);
 
+       
+
         const sprite2 = this.physics.add.image(400, 300, 'ball')
             .setVelocity(400, 400)
-            .setBounce(1, 1.01)
+            .setBounce(1, 1.02)
             .setCollideWorldBounds(true)
             .setGravityY(100);
+        
         sprite.body.onCollide = true;
+        sprite.body.setCircle(48);
         sprite2.body.onCollide = true;
+        sprite2.body.setCircle(48);
 
         //this.physics.add.collider(this.sprite2, this.group);
 
@@ -42,7 +47,6 @@ class game1 extends Phaser.Scene {
         this.add.text(100, 100, "Movement: Arrow Keys\n\nDont get hit!").setFontSize(30)
 
         this.physics.add.collider(this.player, [sprite, sprite2], () => {
-
             this.scene.start('summary1');
         });
 
@@ -83,10 +87,11 @@ class summary1 extends Phaser.Scene {
     }
     create(){
         this.add.text(300, 150, "You have gotten hit by one of the circles!").setFontSize(50).setFill("#f0000f");
-        this.add.text(750, 700, "CLICK ANYWHERE TO MOVE ON TO GAME 2").setFontSize(30)
-        this.add.text(650, 500, game1points).setFontSize(30)
-        this.add.text(650, 560, game1points).setFontSize(30)
-        this.add.text(400, 500, "Game 1 score:\n\nTOTAL Score:\n\n",).setFontSize(30) 
+        this.add.text(100, 500, "Game 2 is all about dodging asteroids and staying alive for as long as you can!").setFontSize(35).setFill("#f0f00f");
+        this.add.text(675, 700, "CLICK ANYWHERE TO MOVE ON TO GAME 2").setFontSize(30)
+        this.add.text(650, 300, game1points).setFontSize(30)
+        this.add.text(650, 360, game1points).setFontSize(30)
+        this.add.text(400, 300, "Game 1 score:\n\nTOTAL Score:\n\n",).setFontSize(30) 
             this.input.on('pointerdown', () => {
                 this.scene.start('game2')
     });

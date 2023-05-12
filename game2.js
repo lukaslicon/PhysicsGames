@@ -6,42 +6,75 @@ class game2 extends Phaser.Scene {
     }
     create()
     {
-        this.add.text(300, 150, "You have gotten hit by one of the circles!").setFontSize(50).setFill("#f0000f");
+        this.add.text(300, 150, "Dodge the asteroids for as long as you can!").setFontSize(50).setFill("#f0000f");
         this.cameras.main.setBackgroundColor(0x1D1923);
         this.player = this.physics.add.image(950, 950, 'ship')
-
         const { world } = this.physics;
 
         this.input.on('pointermove', pointer =>
         {
             this.player.x = pointer.worldX;
+            this.player.y = pointer.worldY;
         });
-        this.input.on('pointermove', pointer =>
-        {
-            this.player.x = pointer.worldX;
+        this.asteroids = this.physics.add.group();
+
+        //asteroids
+        const spawnDelay = 300; 
+        const initialSpeed = 200; 
+        const acceleration = 50; 
+        let nextSpawnTime = 0; 
+
+
+        this.physics.add.collider(this.player, this.asteroids, () => {
+            this.scene.start('summary2'); //player collides with an asteroid
         });
 
-        this.input.on('pointerdown', (pointer) => {
-            // Create a laser sprite at the player's position
-            const laser = this.physics.add.image(this.player.x, this.player.y, 'laser');
+        this.time.addEvent({
+            delay: spawnDelay,
+            loop: true,
+            callback: () => {
+                if (this.time.now > nextSpawnTime) {
+                    const asteroid = this.asteroids.create(
+                        Phaser.Math.Between(50, this.cameras.main.width - 50),
+                        -50,
+                        'asteroid'
+                    );
+                    game2points++;
+                    asteroid.setVelocity(0, initialSpeed);
+                    asteroid.body.setCircle(48);
+                    nextSpawnTime = spawnDelay - 40;
 
-            // Set the velocity of the laser
-            laser.setVelocity(0, -500); // Adjust the velocity as per your needs
-
-            // Destroy the laser sprite when it goes out of bounds
-            laser.setCollideWorldBounds(true);
-            laser.body.onWorldBounds = true;
-            this.physics.world.on('worldbounds', (body) => {
-                if (body.gameObject === laser) {
-                    laser.destroy();
+                    // Increase speed of asteroids falling down over time
+                    this.time.addEvent({
+                        delay: 1000,
+                        callback: () => {
+                            asteroid.setVelocityY(asteroid.body.velocity.y + acceleration);
+                        },
+                        loop: true
+                    });
+                    // Delete the asteroid and increment game2points when it goes out of the camera
+                    this.physics.world.on('worldbounds', (body) => {
+                        if (body.gameObject === asteroid) {
+                            asteroid.destroy();
+                        }
+                    });
                 }
-            });
+            }
+        });
+
+    this.time.addEvent({
+        delay: 1000, // Update the time every second
+        loop: true,
+        callback: () => {
+            game2time++; // Increment the elapsed time
+            }
         });
 
     }
 
-    update ()
-    {
+
+
+    update(){
 
     }
 }
@@ -52,11 +85,17 @@ class summary2 extends Phaser.Scene {
         super('summary2');
     }
     create(){
+        if(game2points > 0){
+            game2total = (game2points-game2time/2);
+        }
+        totalpoints = game2total + game1points;
         this.add.text(300, 150, "You got hit by a meteor!").setFontSize(50).setFill("#f0000f");
-        this.add.text(750, 800, "CLICK ANYWHERE TO MOVE ON TO GAME 3").setFontSize(30)
-        this.add.text(650, 500, game1points).setFontSize(30)
-        this.add.text(650, 560, game1points).setFontSize(30)
-        this.add.text(400, 500, "Game 1 score:\n\nGame 12 score:\n\nTOTAL Score:\n\n",).setFontSize(30) 
+        this.add.text(750, 800, "CLICK ANYWHERE TO MOVE ON TO GAME 3").setFontSize(30);
+        this.add.text(780, 500, game2points).setFontSize(30);
+        this.add.text(650, 560, game2time).setFontSize(30);
+        this.add.text(750, 620, game2total).setFontSize(30);
+        this.add.text(675, 705, totalpoints).setFontSize(30);
+        this.add.text(400, 500, "Asteroids Spawned:\n\nGame 2 time:\n\nTOTAL Level Score:\n\n\nTotal Points:",).setFontSize(30) 
             this.input.on('pointerdown', () => {
                 this.scene.start('game3')
     });
