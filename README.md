@@ -1,5 +1,4 @@
 # PhysicsGames
-3 simple Physics Based Games
 Playable Link: https://lukaslicon.github.io/PhysicsGames/
 
 Experience requirements:
