@@ -96,8 +96,9 @@ class summary2 extends Phaser.Scene {
             yoyo: true,
             repeat: -1
         });
-        this.add.text(650, 800, "CLICK ANYWHERE TO MOVE ON TO GAME 3").setFontSize(30);
+        this.add.text(650, 900, "CLICK ANYWHERE TO MOVE ON TO GAME 3").setFontSize(30).setFill("#000ff0");
         this.add.text(1130, 400, asteroidCount).setFontSize(30);
+        this.add.text(150, 750, "Game 3 is about making the basketball in the hoop! Are you good at shooting?").setFontSize(35).setFill("#f0f00f");
         this.add.text(1000, 460, game2time).setFontSize(30);
         this.add.text(1100, 520, game2total).setFontSize(30);
         this.add.text(1025, 605, totalpoints).setFontSize(30);
