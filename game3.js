@@ -60,18 +60,17 @@ class summary3 extends Phaser.Scene {
         super('summary3');
     }
     create(){
-
         if(game3bounces > 0){
             game3total = Phaser.Math.RoundTo((game3bounces/game3time) * 40);
         }
         totalpoints = totalpoints + game3total;
         this.add.text(400, 200, "Congratulations on making the goal!").setFontSize(50).setFill("#00ff00");
-        this.add.text(750, 800, "CLICK ANYWHERE TO MOVE ON").setFontSize(30)
-        this.add.text(790, 400, game3bounces).setFontSize(30);
-        this.add.text(750, 460, game3time).setFontSize(30);
-        this.add.text(850, 520, game3total).setFontSize(30);
-        this.add.text(775, 605, totalpoints).setFontSize(30);
-        this.add.text(500, 400, "Ball Bounces:\n\nGame 3 time:      seconds\n\nTOTAL Level Score:\n\n\nTotal Points:",).setFontSize(30) 
+        this.add.text(700, 800, "CLICK ANYWHERE TO MOVE ON").setFontSize(30)
+        this.add.text(1040, 400, game3bounces).setFontSize(30);
+        this.add.text(1000, 460, game3time).setFontSize(30);
+        this.add.text(1100, 520, game3total).setFontSize(30);
+        this.add.text(1025, 605, totalpoints).setFontSize(30);
+        this.add.text(750, 400, "Ball Bounces:\n\nGame 3 time:      seconds\n\nTOTAL Level Score:\n\n\nTotal Points:",).setFontSize(30) 
             this.input.on('pointerdown', () => {
                 this.scene.start('outro')
     });

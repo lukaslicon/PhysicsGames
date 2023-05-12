@@ -86,10 +86,10 @@ class summary1 extends Phaser.Scene {
     create(){
         this.add.text(300, 150, "You have gotten hit by one of the circles!").setFontSize(50).setFill("#f0000f");
         this.add.text(100, 500, "Game 2 is all about dodging asteroids and staying alive for as long as you can!").setFontSize(35).setFill("#f0f00f");
-        this.add.text(675, 700, "CLICK ANYWHERE TO MOVE ON TO GAME 2").setFontSize(30)
-        this.add.text(650, 300, game1points).setFontSize(30)
-        this.add.text(650, 360, game1points).setFontSize(30)
-        this.add.text(400, 300, "Game 1 score:\n\nTOTAL Score:\n\n",).setFontSize(30) 
+        this.add.text(650, 700, "CLICK ANYWHERE TO MOVE ON TO GAME 2").setFontSize(30)
+        this.add.text(1075, 300, game1points).setFontSize(30)
+        this.add.text(1075, 360, game1points).setFontSize(30)
+        this.add.text(825, 300, "Game 1 score:\n\nTOTAL Score:\n\n",).setFontSize(30) 
             this.input.on('pointerdown', () => {
                 this.scene.start('game2')
     });

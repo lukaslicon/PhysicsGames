@@ -87,13 +87,21 @@ class summary2 extends Phaser.Scene {
             game2total =  Phaser.Math.RoundTo((game2points-game2time/2));
         }
         totalpoints = game2total + game1points;
-        this.add.text(300, 150, "You got hit by a meteor!").setFontSize(50).setFill("#f0000f");
-        this.add.text(750, 800, "CLICK ANYWHERE TO MOVE ON TO GAME 3").setFontSize(30);
-        this.add.text(780, 500, asteroidCount).setFontSize(30);
-        this.add.text(650, 560, game2time).setFontSize(30);
-        this.add.text(750, 620, game2total).setFontSize(30);
-        this.add.text(675, 705, totalpoints).setFontSize(30);
-        this.add.text(400, 500, "Asteroids Spawned:\n\nGame 2 time:\n\nTOTAL Level Score:\n\n\nTotal Points:",).setFontSize(30) 
+        const text = this.add.text(450, 150, "Oh No! You got hit by a meteor!").setFontSize(50).setFill("#f0000f");
+        this.tweens.add({
+            targets: text,
+            scaleX: 1.05,
+            scaleY: 1.4,
+            duration: 1000,
+            yoyo: true,
+            repeat: -1
+        });
+        this.add.text(650, 800, "CLICK ANYWHERE TO MOVE ON TO GAME 3").setFontSize(30);
+        this.add.text(1130, 400, asteroidCount).setFontSize(30);
+        this.add.text(1000, 460, game2time).setFontSize(30);
+        this.add.text(1100, 520, game2total).setFontSize(30);
+        this.add.text(1025, 605, totalpoints).setFontSize(30);
+        this.add.text(750, 400, "Asteroids Spawned:\n\nGame 2 time:\n\nTOTAL Level Score:\n\n\nTotal Points:",).setFontSize(30) 
             this.input.on('pointerdown', () => {
                 this.scene.start('game3')
     });
