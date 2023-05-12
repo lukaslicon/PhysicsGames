@@ -72,8 +72,6 @@ class game2 extends Phaser.Scene {
 
     }
 
-
-
     update(){
 
     }
