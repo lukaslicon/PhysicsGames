@@ -18,8 +18,6 @@ class game1 extends Phaser.Scene {
             .setCollideWorldBounds(true)
             .setGravityY(100);
 
-       
-
         const sprite2 = this.physics.add.image(400, 300, 'ball')
             .setVelocity(400, 400)
             .setBounce(1, 1.02)

@@ -2,7 +2,8 @@ game1points = 0;
 game2points = 0;
 game2time = 0;
 game2total = 0;
-game3points = 0;
+game3bounces = 0;
+game3total = 0;
 game3time = 0;
 totalpoints = 0;
 shotsTaken = 0;
@@ -23,7 +24,7 @@ class load extends Phaser.Scene {
         this.load.image('asteroid', 'images/asteroid.png');
         this.load.image('head', 'images/cannonhead.png');
         this.load.image('wheel', 'images/cannonwheel.png');
-        this.load.image('basketball', 'images/basketball.png');
+        this.load.image('balls', 'images/basketball.png');
         this.load.image('bar', 'images/bar.png');
         this.load.image('hoop', 'images/hoop.png');
 
