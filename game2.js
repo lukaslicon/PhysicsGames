@@ -1,4 +1,4 @@
-
+asteroidCount = 0;
 class game2 extends Phaser.Scene {
     constructor(){
         super('game2');
@@ -39,7 +39,8 @@ class game2 extends Phaser.Scene {
                         -50,
                         'asteroid'
                     );
-                    game2points++;
+                    game2points = game2points + .4;
+                    asteroidCount++;
                     asteroid.setVelocity(0, initialSpeed);
                     asteroid.body.setCircle(48);
                     nextSpawnTime = spawnDelay - 40;
@@ -84,12 +85,12 @@ class summary2 extends Phaser.Scene {
     }
     create(){
         if(game2points > 0){
-            game2total = (game2points-game2time/2);
+            game2total =  Phaser.Math.RoundTo((game2points-game2time/2));
         }
         totalpoints = game2total + game1points;
         this.add.text(300, 150, "You got hit by a meteor!").setFontSize(50).setFill("#f0000f");
         this.add.text(750, 800, "CLICK ANYWHERE TO MOVE ON TO GAME 3").setFontSize(30);
-        this.add.text(780, 500, game2points).setFontSize(30);
+        this.add.text(780, 500, asteroidCount).setFontSize(30);
         this.add.text(650, 560, game2time).setFontSize(30);
         this.add.text(750, 620, game2total).setFontSize(30);
         this.add.text(675, 705, totalpoints).setFontSize(30);
