@@ -60,6 +60,8 @@ class game2 extends Phaser.Scene {
                         }
                     });
                 }
+
+                
             }
         });
 
@@ -73,9 +75,6 @@ class game2 extends Phaser.Scene {
 
     }
 
-    update(){
-
-    }
 }
 
     
