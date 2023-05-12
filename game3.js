@@ -6,6 +6,7 @@ class game3 extends Phaser.Scene {
     }
     create()
     {
+        this.add.image(320, 256, 'court').setScale(1.35);
         this.add.text(300, 150, "Make the ball into the hoop!").setFontSize(50).setFill("#f0000f");
         this.cameras.main.setBackgroundColor(0x1D1923);
 
@@ -23,12 +24,12 @@ class game3 extends Phaser.Scene {
         goal.body.setCircle(245);
 
         //ball
-        const ball = this.physics.add.image(400, 300, 'balls')
+        const ball = this.physics.add.image(400, 300, 'basketball')
             .setVelocity(500, 500)
             .setScale(.5)
             .setBounce(1, 1)
             .setCollideWorldBounds(true)
-            .setGravityY(100)
+            .setGravityY(200)
             .body.setCircle(80);
         this.input.on('pointermove', pointer =>
         {
@@ -64,13 +65,13 @@ class summary3 extends Phaser.Scene {
             game3total = Phaser.Math.RoundTo((game3bounces/game3time) * 40);
         }
         totalpoints = totalpoints + game3total;
-        this.add.text(300, 150, "Congratulations on making the goal!").setFontSize(50).setFill("#f0000f");
+        this.add.text(400, 200, "Congratulations on making the goal!").setFontSize(50).setFill("#00ff00");
         this.add.text(750, 800, "CLICK ANYWHERE TO MOVE ON").setFontSize(30)
-        this.add.text(690, 500, game3bounces).setFontSize(30);
-        this.add.text(650, 560, game3time).setFontSize(30);
-        this.add.text(750, 620, game3total).setFontSize(30);
-        this.add.text(675, 705, totalpoints).setFontSize(30);
-        this.add.text(400, 500, "Ball Bounces:\n\nGame 3 time:      seconds\n\nTOTAL Level Score:\n\n\nTotal Points:",).setFontSize(30) 
+        this.add.text(790, 400, game3bounces).setFontSize(30);
+        this.add.text(750, 460, game3time).setFontSize(30);
+        this.add.text(850, 520, game3total).setFontSize(30);
+        this.add.text(775, 605, totalpoints).setFontSize(30);
+        this.add.text(500, 400, "Ball Bounces:\n\nGame 3 time:      seconds\n\nTOTAL Level Score:\n\n\nTotal Points:",).setFontSize(30) 
             this.input.on('pointerdown', () => {
                 this.scene.start('outro')
     });
