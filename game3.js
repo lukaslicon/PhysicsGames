@@ -1,3 +1,4 @@
+
 shotsTaken = 0;
 class game3 extends Phaser.Scene {
     constructor(){
@@ -42,14 +43,19 @@ class game3 extends Phaser.Scene {
                 body.velocity.y *= .5;
             }
         });
-    }
-    update ()
-    {
+
+                // Add three circles on the right side of the view
+                const circleSpacing = 100;
+                const circleRadius = 50;
+                const circleX = this.cameras.main.width - circleRadius - 10;
+                const circleY = (this.cameras.main.height/2);
+                const circle1 = this.add.circle(circleX, circleY, circleRadius, 0xffffff);
+                const circle2 = this.add.circle(circleX, circleY + 2.75 * circleSpacing, circleRadius, 0xffffff);
+                const circle3 = this.add.circle(circleX, circleY - 3 * circleSpacing, circleRadius, 0xffffff);
 
     }
 }
 
-    
 class summary3 extends Phaser.Scene {
     constructor() {
         super('summary3');
