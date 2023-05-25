@@ -5,7 +5,7 @@ class intro extends Phaser.Scene {
 
     create() {
         this.add.image(960,540 , 'summaryScreen');
-        this.add.text(150,150, "Welcome to my Physics Based Games!").setFontSize(80);
+        this.add.text(150,150, "Welcome to my Physics Based Games!").setFontSize(90);
         let rect1 = new Phaser.Geom.Rectangle(125, 140, 1675, 5);
         let rect2 = new Phaser.Geom.Rectangle(125, 230, 1675, 5);
         let graphics1 = this.add.graphics({ fillStyle: { color: 0xf0000f } });
